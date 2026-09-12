@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/TECH-SAM-ONLINE-CV/static/css/main.b8525ae6.css",
-    "main.js": "/TECH-SAM-ONLINE-CV/static/js/main.19fc0968.js",
+    "main.js": "/TECH-SAM-ONLINE-CV/static/js/main.1533f407.js",
     "index.html": "/TECH-SAM-ONLINE-CV/index.html",
     "main.b8525ae6.css.map": "/TECH-SAM-ONLINE-CV/static/css/main.b8525ae6.css.map",
-    "main.19fc0968.js.map": "/TECH-SAM-ONLINE-CV/static/js/main.19fc0968.js.map"
+    "main.1533f407.js.map": "/TECH-SAM-ONLINE-CV/static/js/main.1533f407.js.map"
   },
   "entrypoints": [
     "static/css/main.b8525ae6.css",
-    "static/js/main.19fc0968.js"
+    "static/js/main.1533f407.js"
   ]
 }
