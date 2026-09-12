@@ -1,159 +1,176 @@
-# TECH-SAM
+# TECH-SAM Online CV
 
-## Professional Technology Solutions Web Application
+## Professional React Curriculum Vitae
 
-TECH-SAM is a responsive two-page web application developed using React JS. The application presents a professional technology-focused company, introduces its services, and provides visitors with a way to get in touch.
+TECH-SAM Online CV is a professional and responsive online Curriculum Vitae developed using React.js. It presents the academic background, technical skills, work experience, projects and references of Molikoe Maqhai.
 
-## Project Overview
+The application was developed as an individual React assignment for the Diploma in Software Engineering and Multimedia.
 
-The purpose of this project is to design and develop a professional, responsive, and user-friendly web application using modern front-end development technologies.
+## Live Website
 
-The application consists of two main pages:
+[View the deployed online CV](https://molikoemaqhai-star.github.io/TECH-SAM-ONLINE-CV)
 
-* **Home** – Introduces TECH-SAM, provides a company overview, and highlights its services.
-* **Contact** – Provides a contact form where users can enter their details and submit a message.
+## GitHub Repository
 
-## Features
+[View the source code on GitHub](https://github.com/molikoemaqhai-star/TECH-SAM-ONLINE-CV)
 
-* Responsive design for desktop, tablet, and mobile devices
-* Professional dark and neutral visual design
-* Navigation between Home and Contact pages
-* Hero section with background imagery
-* Company introduction and information section
-* Services/features section
-* Contact form
-* Client-side form validation
-* Error messages for invalid form fields
-* Successful submission confirmation without refreshing the page
-* Reusable React components
-* React Router page navigation
-* Responsive footer
+## CV Sections
 
-## Technologies Used
+The application contains the following required sections:
 
-* React JS
-* JavaScript
-* HTML5
-* CSS3
-* React Router
-* Git
-* GitHub
+* Personal profile and professional summary
+* Contact information
+* Educational background
+* Technical and professional skills
+* Work experience
+* Academic and personal projects
+* Professional and academic references
+* Footer with contact and copyright information
+
+## Interactive Features
+
+The CV includes several interactive features:
+
+* Dark and light theme toggle
+* Print CV button
+* Show and hide skills button
+* Show and hide references button
+* Responsive mobile navigation menu
+* Navigation links to each CV section
 
 ## React Concepts Demonstrated
 
-This project demonstrates the following React concepts:
+The application demonstrates:
 
-* Functional components
+* React functional components
 * JSX
 * Props
-* `useState`
-* `useEffect`
-* Form handling
 * Component composition
 * Reusable components
-* React Router
+* `useState`
+* `useEffect`
+* DOM interaction
+* Event handling
+* Conditional rendering
+* Array mapping
 
-## Project Structure
+`useState` manages the theme, expanded skills, reference visibility and mobile navigation.
 
-```text
-tech-sam-application/
-│
-├── public/
-│   └── images/
-│       └── tech-sam-hero.jpg
-│
-├── src/
-│   ├── components/
-│   │   ├── Header.js
-│   │   ├── Footer.js
-│   │   └── ServiceCard.js
-│   │
-│   ├── pages/
-│   │   ├── Home.js
-│   │   └── Contact.js
-│   │
-│   ├── images/
-│   │   └── tech-sam-logo.png
-│   │
-│   ├── App.js
-│   ├── App.css
-│   ├── index.css
-│   └── index.js
-│
-├── package.json
-├── README.md
-└── .gitignore
-```
+`useEffect` updates the document title and applies the selected theme to the document body.
 
-## Installation and Setup
+# Components
 
-### 1. Clone the repository
+The CV is divided into the following components:
 
-```bash
-git clone https://github.com/molikoemaqhai-star/tech-sam-application.git
-```
+* `Header`
+* `Profile`
+* `ContactStrip`
+* `SectionHeading`
+* `Education`
+* `Skills`
+* `Experience`
+* `Projects`
+* `References`
+* `Footer`
 
-### 2. Navigate into the project directory
+# Technologies Used
 
-```bash
-cd tech-sam-application
-```
+* React.js
+* JavaScript ES6+
+* JSX
+* HTML5
+* CSS3
+* Lucide React icons
+* Git
+* GitHub
+* GitHub Pages
 
-### 3. Install dependencies
+# Responsive Design
 
-```bash
-npm install
-```
-
-### 4. Start the development server
-
-```bash
-npm start
-```
-
-The application will normally be available at:
-
-```text
-http://localhost:3000
-```
-
-## Contact Form Validation
-
-The Contact page includes client-side form validation using React state and JavaScript.
-
-The form validates:
-
-* Full Name
-* Email Address
-* Phone Number
-* Subject
-* Message
-
-Users receive appropriate error messages when required information is missing or invalid. When all fields are valid, the application displays a successful submission confirmation without refreshing the page.
-
-## Responsive Design
-
-The application is designed to work across different screen sizes, including:
+The application is designed to display correctly on:
 
 * Desktop computers
 * Laptops
 * Tablets
 * Mobile phones
 
-CSS media queries are used to adapt the layout and navigation for smaller screens.
+CSS media queries, flexible layouts and responsive navigation are used to adapt the interface to different screen sizes.
 
-## Git and GitHub
+## Project Structure
 
-This project is maintained using Git and hosted on GitHub.
+text
+TECH-SAM-SOURCE-CODE/
+├── public/
+│   ├── images/
+│   └── index.html
+├── src/
+│   ├── components/
+│   ├── images/
+│   ├── pages/
+│   ├── App.css
+│   ├── app.jsx
+│   ├── index.css
+│   └── index.js
+├- .gitignore
+|-package.json
+|- package-lock.json
+|- README.md
 
-**Repository:**
-https://github.com/molikoemaqhai-star/tech-sam-application
 
-Meaningful commits are used throughout the development process to document changes and development progress.
+# Installation and Setup
+
+# 1. Clone the repository
+
+bash
+git clone https://github.com/molikoemaqhai-star/TECH-SAM-ONLINE-CV.git
+
+
+### 2. Enter the project folder
+
+bash
+cd TECH-SAM-ONLINE-CV
+
+
+# 3. Install dependencies
+
+bash
+npm install
+
+
+# 4. Start the application
+
+bash
+npm start
+
+
+The development version will normally open at:
+
+text
+http://localhost:3000
+
+
+## Build and Deployment
+
+Create an optimized production build:
+
+bash
+npm run build
+
+
+Deploy the application to GitHub Pages:
+
+bash
+npm run deploy
+
 
 ## Author
 
-**Tech-SAM Project**
+**Molikoe Maqhai**
 
 Diploma in Software Engineering and Multimedia
 Faculty of Information Communication Technology
+Limkokwing University of Creative Technology
+
+## Copyright
+
+© 2026 Molikoe Maqhai. All rights reserved.
