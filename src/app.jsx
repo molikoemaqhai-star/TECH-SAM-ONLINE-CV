@@ -402,7 +402,7 @@ function References({ visible, onToggle }) {
             <p>Senior Lecturer, Web Design 2</p>
 
             <a href="mailto:thabo.mokoena@gmail.com">
-              litebohomolaoa@gmail.com.com
+              litebohomolaoa@gmail.com
             </a>
           </article>
 
@@ -415,7 +415,7 @@ function References({ visible, onToggle }) {
             <p>Project Supervisor, ICT Faculty</p>
 
             <a href="mailto:lineo.nthunya@gmail.com">
-              lineo.nthunya@gmail.com.com
+              lineo.nthunya@gmail.com
             </a>
           </article>
         </div>
