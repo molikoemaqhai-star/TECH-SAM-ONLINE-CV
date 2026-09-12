@@ -1,34 +1,508 @@
 import { useEffect, useState } from "react";
-import { ArrowUpRight, BriefcaseBusiness, Check, ChevronDown, Download, GitBranch, GraduationCap, Mail, MapPin, Menu, Moon, Phone, Sun, UserRound, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Check,
+  ChevronDown,
+  Download,
+  GitBranch,
+  GraduationCap,
+  Mail,
+  MapPin,
+  Menu,
+  Moon,
+  Phone,
+  Sun,
+  UserRound,
+  X,
+} from "lucide-react";
 import "./App.css";
 
-const skills = ["React.js & JSX", "JavaScript ES6+", "Responsive UI design", "HTML5 & CSS3", "Git & GitHub", "Problem solving"];
-const education = [
-  { year: "2023 — Present", title: "Diploma in Software Engineering & Multimedia", school: "Limkokwing University of Creative Technology", detail: "Year 3 · Faculty of Information Communication Technology" },
-  { year: "2017 — 2021", title: "Lesotho General Certificate of Secondary Education", school: "St. Paul's High School", detail: "Focus: Mathematics, Computer Studies and Sciences" },
-];
-const projects = [
-  { number: "01", title: "Campus Connect", type: "Academic project", description: "A responsive student support portal that brings announcements, resources and event updates into one easy-to-navigate interface.", tools: ["React", "CSS", "Figma"] },
-  { number: "02", title: "Local Market Hub", type: "Personal project", description: "A clean product discovery experience for local makers, built around accessible components, clear information hierarchy and mobile-first layouts.", tools: ["JavaScript", "HTML", "Git"] },
+const skills = [
+  "React.js & JSX",
+  "JavaScript ES6+",
+  "Responsive UI design",
+  "HTML5 & CSS3",
+  "Git & GitHub",
+  "Problem solving",
 ];
 
-function SectionHeading({ eyebrow, title }) { return <div className="section-heading-wrap"><p className="eyebrow">{eyebrow}</p><h2>{title}</h2></div>; }
+const education = [
+  {
+    year: "2023 — Present",
+    title: "Diploma in Software Engineering & Multimedia",
+    school: "Limkokwing University of Creative Technology",
+    detail: "Year 3 · Faculty of Information Communication Technology",
+  },
+  {
+    year: "2017 — 2021",
+    title: "Lesotho General Certificate of Secondary Education",
+    school: "St. Paul's High School",
+    detail: "Focus: Mathematics, Computer Studies and Sciences",
+  },
+];
+
+const projects = [
+  {
+    number: "01",
+    title: "Campus Connect",
+    type: "Academic project",
+    description:
+      "A responsive student support portal that brings announcements, resources and event updates into one easy-to-navigate interface.",
+    tools: ["React", "CSS", "Figma"],
+  },
+  {
+    number: "02",
+    title: "Local Market Hub",
+    type: "Personal project",
+    description:
+      "A clean product discovery experience for local makers, built around accessible components, clear information hierarchy and mobile-first layouts.",
+    tools: ["JavaScript", "HTML", "Git"],
+  },
+];
+
+function SectionHeading({ eyebrow, title }) {
+  return (
+    <div className="section-heading-wrap">
+      <p className="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+    </div>
+  );
+}
+
 function Header({ isDark, onThemeToggle, onPrint }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navItems = ["about", "education", "experience", "projects", "references"];
-  return <header className="site-header"><a className="wordmark" href="#about" aria-label="Go to Molikoe's profile"><span className="wordmark-mark">MM</span><span>Molikoe Maqhai</span></a><button className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X size={20} /> : <Menu size={20} />}</button><nav className={`site-nav ${menuOpen ? "is-open" : ""}`} aria-label="Main navigation">{navItems.map((item) => <a href={`#${item}`} key={item} onClick={() => setMenuOpen(false)}>{item}</a>)}<button className="icon-button" onClick={onThemeToggle} aria-label={isDark ? "Use light theme" : "Use dark theme"} title="Toggle theme">{isDark ? <Sun size={17} /> : <Moon size={17} />}</button><button className="header-print" onClick={onPrint}><Download size={15} /> Print CV</button></nav></header>;
+
+  const navItems = [
+    "about",
+    "education",
+    "experience",
+    "projects",
+    "references",
+  ];
+
+  return (
+    <header className="site-header">
+      <a
+        className="wordmark"
+        href="#about"
+        aria-label="Go to Molikoe's profile"
+      >
+        <span className="wordmark-mark">MM</span>
+        <span>Molikoe Maqhai</span>
+      </a>
+
+      <button
+        className="mobile-menu"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation"
+      >
+        {menuOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
+
+      <nav
+        className={`site-nav ${menuOpen ? "is-open" : ""}`}
+        aria-label="Main navigation"
+      >
+        {navItems.map((item) => (
+          <a
+            href={`#${item}`}
+            key={item}
+            onClick={() => setMenuOpen(false)}
+          >
+            {item}
+          </a>
+        ))}
+
+        <button
+          className="icon-button"
+          onClick={onThemeToggle}
+          aria-label={isDark ? "Use light theme" : "Use dark theme"}
+          title="Toggle theme"
+        >
+          {isDark ? <Sun size={17} /> : <Moon size={17} />}
+        </button>
+
+        <button className="header-print" onClick={onPrint}>
+          <Download size={15} />
+          Print CV
+        </button>
+      </nav>
+    </header>
+  );
 }
-function Profile() { return <section className="hero" id="about"><div className="hero-copy"><p className="eyebrow">Curriculum vitae <span className="line" /></p><h1>Building thoughtful<br /><em>digital experiences.</em></h1><p className="hero-intro">I am a software engineering student who turns complex ideas into simple, useful and beautifully considered web experiences.</p><div className="hero-actions"><a className="button button-dark" href="mailto:molikoemaqahi@gmail.com">Let's connect <ArrowUpRight size={16} /></a><a className="text-link" href="#projects">View my work <ArrowUpRight size={15} /></a></div></div><div className="hero-aside"><div className="portrait-placeholder" aria-label="Profile monogram">M<span>M</span></div><div className="availability"><span className="status-dot" /> Available for opportunities</div></div></section>; }
-function ContactStrip() { return <section className="contact-strip" aria-label="Contact information"><div><Mail size={18} /><span><small>Email</small><a href="mailto:molikoemaqahi@gmail.com">molikoemaqahi@gmail.com</a></span></div><div><Phone size={18} /><span><small>Phone</small><a href="tel:58790589">58790589</a></span></div><div><MapPin size={18} /><span><small>Location</small><strong>Maseru, Lesotho</strong></span></div></section>; }
-function Education() { return <section className="content-section" id="education"><SectionHeading eyebrow="01 / Education" title="Learning with purpose." /><div className="timeline">{education.map((item) => <article className="timeline-item" key={item.title}><span className="timeline-year">{item.year}</span><div><h3>{item.title}</h3><p className="accent-text">{item.school}</p><p>{item.detail}</p></div></article>)}</div></section>; }
-function Skills({ expanded, onToggle }) { return <section className="content-section skills-section" id="skills"><div><SectionHeading eyebrow="02 / Capabilities" title="Tools for the work." /><p className="section-copy">A practical toolkit shaped by coursework, collaboration and curiosity.</p></div><div className="skills-list">{(expanded ? skills : skills.slice(0, 4)).map((skill) => <span key={skill}><Check size={15} />{skill}</span>)}<button className="reveal-button" onClick={onToggle}>{expanded ? "Show less" : "Show all skills"}<ChevronDown className={expanded ? "rotated" : ""} size={16} /></button></div></section>; }
-function Experience() { return <section className="content-section experience-section" id="experience"><SectionHeading eyebrow="03 / Experience" title="Making ideas useful." /><article className="experience-card"><div className="experience-meta"><BriefcaseBusiness size={20} /><span>2024 — Present<br /><strong>Freelance</strong></span></div><div><h3>Junior Web Developer</h3><p className="accent-text">Independent projects · Maseru, Lesotho</p><p>Designing and developing responsive web interfaces for small organisations and personal ventures. I translate requirements into reusable React components, accessible layouts and maintainable front-end code.</p><ul><li>Built mobile-first interfaces with React and modern CSS.</li><li>Worked closely with clients to refine content and visual direction.</li><li>Improved usability through clear navigation and component consistency.</li></ul></div></article></section>; }
-function Projects() { return <section className="content-section" id="projects"><SectionHeading eyebrow="04 / Selected work" title="Projects with a point of view." /><div className="project-grid">{projects.map((project) => <article className="project-card" key={project.title}><span className="project-number">{project.number}</span><p className="project-type">{project.type}</p><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div></article>)}</div></section>; }
-function References({ visible, onToggle }) { return <section className="content-section references-section" id="references"><div className="references-heading"><SectionHeading eyebrow="05 / References" title="People I have learned from." /><button className="reveal-button" onClick={onToggle}>{visible ? "Hide references" : "Show references"}<ChevronDown className={visible ? "rotated" : ""} size={16} /></button></div>{visible && <div className="reference-grid"><article><div className="reference-icon"><GraduationCap size={19} /></div><h3>Mr Liteboho Molaoa</h3><p>Senior Lecturer, Software Engineering</p><a href="mailto:thabo.mokoena@gmail.com">litebohomolaoa@gmail.com.com</a></article><article><div className="reference-icon"><UserRound size={19} /></div><h3>Ms Lineo Nthunya</h3><p>Project Supervisor, ICT Faculty</p><a href="mailto:lineo.nthunya@gmail.com">lineo.nthunya@gmail.com.com</a></article></div>}</section>; }
-function Footer() { return <footer className="site-footer"><div><span className="wordmark-mark">MM</span><strong>Molikoe Maqhai</strong></div><p>Software engineering student · Building with intention.</p><p>© {new Date().getFullYear()} Molikoe Maqhai. All rights reserved.</p><a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub profile"><GitBranch size={18} /></a></footer>; }
+
+function Profile() {
+  return (
+    <section className="hero" id="about">
+      <div className="hero-copy">
+        <p className="eyebrow">
+          Curriculum vitae <span className="line" />
+        </p>
+
+        <h1>
+          Building thoughtful
+          <br />
+          <em>digital experiences.</em>
+        </h1>
+
+        <p className="hero-intro">
+          I am a software engineering student who turns complex ideas into
+          simple, useful and beautifully considered web experiences.
+        </p>
+
+        <div className="hero-actions">
+          <a
+            className="button button-dark"
+            href="mailto:molikoemaqahi@gmail.com"
+          >
+            Let's connect <ArrowUpRight size={16} />
+          </a>
+
+          <a className="text-link" href="#projects">
+            View my work <ArrowUpRight size={15} />
+          </a>
+        </div>
+      </div>
+
+      <div className="hero-aside">
+        <div
+          className="portrait-placeholder"
+          aria-label="Profile monogram"
+        >
+          M<span>M</span>
+        </div>
+
+        <div className="availability">
+          <span className="status-dot" />
+          Available for opportunities
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ContactStrip() {
+  return (
+    <section
+      className="contact-strip"
+      aria-label="Contact information"
+    >
+      <div>
+        <Mail size={18} />
+
+        <span>
+          <small>Email</small>
+          <a href="mailto:molikoemaqahi@gmail.com">
+            molikoemaqahi@gmail.com
+          </a>
+        </span>
+      </div>
+
+      <div>
+        <Phone size={18} />
+
+        <span>
+          <small>Phone</small>
+          <a href="tel:58790589">58790589</a>
+        </span>
+      </div>
+
+      <div>
+        <MapPin size={18} />
+
+        <span>
+          <small>Location</small>
+          <strong>Maseru, Lesotho</strong>
+        </span>
+      </div>
+    </section>
+  );
+}
+
+function Education() {
+  return (
+    <section className="content-section" id="education">
+      <SectionHeading
+        eyebrow="01 / Education"
+        title="Learning with purpose."
+      />
+
+      <div className="timeline">
+        {education.map((item) => (
+          <article className="timeline-item" key={item.title}>
+            <span className="timeline-year">{item.year}</span>
+
+            <div>
+              <h3>{item.title}</h3>
+              <p className="accent-text">{item.school}</p>
+              <p>{item.detail}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Skills({ expanded, onToggle }) {
+  return (
+    <section
+      className="content-section skills-section"
+      id="skills"
+    >
+      <div>
+        <SectionHeading
+          eyebrow="02 / Capabilities"
+          title="Tools for the work."
+        />
+
+        <p className="section-copy">
+          A practical toolkit shaped by coursework, collaboration and
+          curiosity.
+        </p>
+      </div>
+
+      <div className="skills-list">
+        {(expanded ? skills : skills.slice(0, 4)).map((skill) => (
+          <span key={skill}>
+            <Check size={15} />
+            {skill}
+          </span>
+        ))}
+
+        <button className="reveal-button" onClick={onToggle}>
+          {expanded ? "Show less" : "Show all skills"}
+
+          <ChevronDown
+            className={expanded ? "rotated" : ""}
+            size={16}
+          />
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  return (
+    <section
+      className="content-section experience-section"
+      id="experience"
+    >
+      <SectionHeading
+        eyebrow="03 / Experience"
+        title="Making ideas useful."
+      />
+
+      <article className="experience-card">
+        <div className="experience-meta">
+          <BriefcaseBusiness size={20} />
+
+          <span>
+            2024 — Present
+            <br />
+            <strong>Freelance</strong>
+          </span>
+        </div>
+
+        <div>
+          <h3>Junior Web Developer</h3>
+
+          <p className="accent-text">
+            Independent projects · Maseru, Lesotho
+          </p>
+
+          <p>
+            Designing and developing responsive web interfaces for small
+            organisations and personal ventures. I translate requirements
+            into reusable React components, accessible layouts and
+            maintainable front-end code.
+          </p>
+
+          <ul>
+            <li>
+              Built mobile-first interfaces with React and modern CSS.
+            </li>
+
+            <li>
+              Worked closely with clients to refine content and visual
+              direction.
+            </li>
+
+            <li>
+              Improved usability through clear navigation and component
+              consistency.
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  );
+}
+
+function Projects() {
+  return (
+    <section className="content-section" id="projects">
+      <SectionHeading
+        eyebrow="04 / Selected work"
+        title="Projects with a point of view."
+      />
+
+      <div className="project-grid">
+        {projects.map((project) => (
+          <article className="project-card" key={project.title}>
+            <span className="project-number">{project.number}</span>
+            <p className="project-type">{project.type}</p>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+
+            <div className="tag-list">
+              {project.tools.map((tool) => (
+                <span key={tool}>{tool}</span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function References({ visible, onToggle }) {
+  return (
+    <section
+      className="content-section references-section"
+      id="references"
+    >
+      <div className="references-heading">
+        <SectionHeading
+          eyebrow="05 / References"
+          title="People I have learned from."
+        />
+
+        <button className="reveal-button" onClick={onToggle}>
+          {visible ? "Hide references" : "Show references"}
+
+          <ChevronDown
+            className={visible ? "rotated" : ""}
+            size={16}
+          />
+        </button>
+      </div>
+
+      {visible && (
+        <div className="reference-grid">
+          <article>
+            <div className="reference-icon">
+              <GraduationCap size={19} />
+            </div>
+
+            <h3>Mr Liteboho Molaoa</h3>
+            <p>Senior Lecturer, Web Design 2</p>
+
+            <a href="mailto:thabo.mokoena@gmail.com">
+              litebohomolaoa@gmail.com.com
+            </a>
+          </article>
+
+          <article>
+            <div className="reference-icon">
+              <UserRound size={19} />
+            </div>
+
+            <h3>Ms Lineo Nthunya</h3>
+            <p>Project Supervisor, ICT Faculty</p>
+
+            <a href="mailto:lineo.nthunya@gmail.com">
+              lineo.nthunya@gmail.com.com
+            </a>
+          </article>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="site-footer">
+      <div>
+        <span className="wordmark-mark">MM</span>
+        <strong>Molikoe Maqhai</strong>
+      </div>
+
+      <div className="footer-contact">
+        <a href="mailto:molikoemaqahi@gmail.com">
+          <Mail size={16} />
+          molikoemaqahi@gmail.com
+        </a>
+
+        <a href="tel:58790589">
+          <Phone size={16} />
+          58790589
+        </a>
+      </div>
+
+      <p>
+        © {new Date().getFullYear()} Molikoe Maqhai. All rights
+        reserved.
+      </p>
+
+      <a
+        href="https://github.com/molikoemaqhai-star"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="GitHub profile"
+      >
+        <GitBranch size={18} />
+      </a>
+    </footer>
+  );
+}
+
 function App() {
-  const [isDark, setIsDark] = useState(false); const [skillsExpanded, setSkillsExpanded] = useState(false); const [referencesVisible, setReferencesVisible] = useState(true);
-  useEffect(() => { document.title = "Molikoe Maqhai | Software Engineering CV"; document.body.dataset.theme = isDark ? "dark" : "light"; }, [isDark]);
-  return <div className="app-shell"><Header isDark={isDark} onThemeToggle={() => setIsDark(!isDark)} onPrint={() => window.print()} /><main><Profile /><ContactStrip /><Education /><Skills expanded={skillsExpanded} onToggle={() => setSkillsExpanded(!skillsExpanded)} /><Experience /><Projects /><References visible={referencesVisible} onToggle={() => setReferencesVisible(!referencesVisible)} /></main><Footer /></div>;
+  const [isDark, setIsDark] = useState(false);
+  const [skillsExpanded, setSkillsExpanded] = useState(false);
+  const [referencesVisible, setReferencesVisible] = useState(true);
+
+  useEffect(() => {
+    document.title = "Molikoe Maqhai | Software Engineering CV";
+    document.body.dataset.theme = isDark ? "dark" : "light";
+  }, [isDark]);
+
+  return (
+    <div className="app-shell">
+      <Header
+        isDark={isDark}
+        onThemeToggle={() => setIsDark(!isDark)}
+        onPrint={() => window.print()}
+      />
+
+      <main>
+        <Profile />
+        <ContactStrip />
+        <Education />
+
+        <Skills
+          expanded={skillsExpanded}
+          onToggle={() => setSkillsExpanded(!skillsExpanded)}
+        />
+
+        <Experience />
+        <Projects />
+
+        <References
+          visible={referencesVisible}
+          onToggle={() =>
+            setReferencesVisible(!referencesVisible)
+          }
+        />
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
+
 export default App;
